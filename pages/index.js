@@ -1,13 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import dbConnect from "../lib/dbConnect";
-import Pet from "../models/Pet";
+import NavBar from "../components/NavBar";
 
 const Index = () => (
 	<>
-		<div>
-			<p>Hello World</p>
-		</div>
+		<NavBar></NavBar>
 	</>
 );
 
