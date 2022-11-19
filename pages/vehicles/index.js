@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
 import Dropdown from "../../components/Dropdown";
+import BasicTable from "../../components/BasicTable"
 
 function Vehicles() {
 	return (
@@ -53,6 +54,8 @@ function Vehicles() {
                 </button>
               </span>
             </div>
+			<br/>
+			<BasicTable> </BasicTable>
           </div>
         </div>
       </div>

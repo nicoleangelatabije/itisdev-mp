@@ -333,12 +333,40 @@ svg{
   padding: 8px;
   display: inline;
 
-        &:hover{
+  
+      &:hover{
         animation: button-hover 0.3s ease-in-out forwards;
       }
 }
 
-.table{
+#btable {
+  border-collapse: collapse;
+  width: 90%;
+  margin: auto;
+  font-size: 18px;
+}
+
+#btable td, #btable th {
+  border: 1px solid #312F30;
+  padding: 8px;
+  
+}
+
+#btable tr:nth-child(even){background-color: #f2f2f2;}
+
+.btable_tr{
   border-radius: 10px;
+}
+#btable tr:hover {background-color: #ddd;}
+
+#btable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
   background-color: #312F30;
+  color: white;
+}
+
+#btable td {
+  text-align: center;
 }
