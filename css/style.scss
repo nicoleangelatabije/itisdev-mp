@@ -333,6 +333,9 @@ svg{
   padding: 8px;
   display: inline;
 
+        &:hover{
+        animation: button-hover 0.3s ease-in-out forwards;
+      }
 }
 
 .table{

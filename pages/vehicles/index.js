@@ -1,7 +1,8 @@
 import React from "react";
+import Link from "next/link";
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
-import SortDropdown from "../../components/Dropdown";
+import Dropdown from "../../components/Dropdown";
 
 function Vehicles() {
 	return (
@@ -46,7 +47,10 @@ function Vehicles() {
                 </select>
               </span>
               <span className="user-right-container">
-                <button className="add-button"> Add Vehicle + </button>
+                <button className="add-button">
+                  {" "}
+                  <Link href="vehicle/addvehicle">Add Vehicle + </Link>
+                </button>
               </span>
             </div>
           </div>
