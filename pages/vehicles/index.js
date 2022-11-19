@@ -4,8 +4,7 @@ import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
 import Dropdown from "../../components/Dropdown";
 import BasicTable from "../../components/BasicTable"
-import GlobalFilter from "../../components/GlobalFilter";
-import {useGlobalFilter} from 'react-table';
+
 function Vehicles() {
 	return (
     <>

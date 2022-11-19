@@ -1,6 +1,7 @@
 import "../css/style.scss";
 import Head from "next/head";
 import React from "react";
+import "regenerator-runtime";
 
 function MyApp({ Component, pageProps }) {
 	return (

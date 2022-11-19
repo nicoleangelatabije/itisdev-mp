@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { useTable, useSortBy, useGlobalFilter, useFilters } from 'react-table'
+import { useTable, useSortBy, useGlobalFilter, useFilters, usePagination} from 'react-table'
 import V_MOCK_DATA from './V_MOCK_DATA.json'
 import { COLUMNS } from './columns'
 import GlobalFilter from './GlobalFilter'
@@ -11,18 +11,32 @@ export const BasicTable = () => {
 
    
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state, setGlobalFilter, } =
-      useTable(
-        {
-          columns,
-          data,
-        },
-        useFilters,
-        useGlobalFilter,
-        useSortBy
-      );
+    const {
+      getTableProps,
+      getTableBodyProps,
+      headerGroups,
+      page,
+      nextPage,
+      canNextPage,
+      previousPage,
+      canPreviousPage,
+      pageOptions,
+      prepareRow,
+      state,
+      setGlobalFilter,
+    } = useTable(
+      {
+        columns,
+        data,
+      },
+
+      useGlobalFilter,
+      useSortBy,
+      usePagination
+    );
 
       const { globalFilter } = state
+      const { pageIndex } = state
    
 
     return (
@@ -36,7 +50,6 @@ export const BasicTable = () => {
             </button>{" "}
           </span>
         </div>
-    
         <br />
         <table id="btable" {...getTableProps()}>
           <thead>
@@ -62,7 +75,7 @@ export const BasicTable = () => {
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map((row) => {
+            {page.map((row) => {
               prepareRow(row);
               return (
                 <tr id="btable" {...row.getRowProps()}>
@@ -76,6 +89,16 @@ export const BasicTable = () => {
             })}
           </tbody>
         </table>
+        <div id="page-buttons">
+            <span>
+                Page{' '}
+                <strong>
+                    {pageIndex + 1} of {pageOptions.length}
+                </strong>
+            </span>
+          <button onClick={() => previousPage()} disabled ={!canPreviousPage}> Previous </button>
+          <button onClick={() => nextPage()} disabled ={!canNextPage}> Next </button>
+        </div>
       </>
     );
 }
