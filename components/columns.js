@@ -1,7 +1,11 @@
+import { GlobalFilter } from './GlobalFilter'
+
 export const COLUMNS = [
   {
     Header: "Plate Number",
     accessor: "plateNum",
+    Filter: GlobalFilter 
+    
   },
   {
     Header: "Transmission",
@@ -16,7 +20,7 @@ export const COLUMNS = [
     accessor: "Brand",
   },
   {
-    Header: "Insur. Exp.",
+    Header: "Insurance Expiry",
     accessor: "insuranceExpDate",
   },
 ];
