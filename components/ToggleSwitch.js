@@ -6,7 +6,7 @@ function ToggleSwitch({ disabled, setDisabled }) {
 	}
 
 	const status = {
-		true: (
+		false: (
 			<div
 				className="toggle-switch-main-container-enabled"
 				onClick={switchClicked}
@@ -20,7 +20,7 @@ function ToggleSwitch({ disabled, setDisabled }) {
 				<div className="toggle-switch-handle"></div>
 			</div>
 		),
-		false: (
+		true: (
 			<div
 				className="toggle-switch-main-container-disabled"
 				onClick={switchClicked}
