@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ToggleSwitch from "../ToggleSwitch";
 
-function UserCard({ lastName, firstName, role, disabled, setEditing }) {
+function UserCard({ lastName, firstName, roleName, disabled, setEditing }) {
 	const [isDisabled, setIsDisabled] = useState(disabled);
 
 	useEffect(() => ({}), [isDisabled]);
@@ -12,7 +12,7 @@ function UserCard({ lastName, firstName, role, disabled, setEditing }) {
 				<span style={{ fontWeight: 700 }}>
 					{lastName}, {firstName}
 				</span>
-				<span style={{ fontSize: "18px", fontWeight: 300 }}>{role}</span>
+				<span style={{ fontSize: "18px", fontWeight: 300 }}>{roleName}</span>
 			</div>
 			<div className="buttons-container">
 				<ToggleSwitch
@@ -26,7 +26,11 @@ function UserCard({ lastName, firstName, role, disabled, setEditing }) {
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 					onClick={() =>
-						setEditing({ firstName: firstName, lastName: lastName, role: role })
+						setEditing({
+							firstName: firstName,
+							lastName: lastName,
+							roleName: roleName,
+						})
 					}
 				>
 					<path

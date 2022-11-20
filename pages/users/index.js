@@ -12,24 +12,43 @@ import User from "../../models/UserSchema";
 export async function getServerSideProps() {
 	await dbConnect();
 
-	const userList = JSON.stringify(
-		await User.find(
-			{},
-			{ userID: 1, firstName: 1, lastName: 1, roleID: 1, disabled: 1 }
-		)
+	const userList = await User.find(
+		{},
+		{ userID: 1, firstName: 1, lastName: 1, roleID: 1, disabled: 1 }
 	);
-	console.log("getting user list", userList);
+	const roleList = await Role.find({}, { roleID: 1, roleName: 1 });
 
-	const roleList = JSON.stringify(
-		await Role.find({}, { roleID: 1, roleName: 1 })
-	);
-	console.log("getting role list:", roleList);
+	var tempUserData = [];
 
-	return { props: { userList, roleList } };
+	userList.forEach((user) => {
+		let isFound = false;
+		let roleName = "";
+		while (!isFound) {
+			roleList.forEach((role) => {
+				if (role.roleID == user.roleID) {
+					roleName = role.roleName;
+					isFound = true;
+				}
+			});
+		}
+		tempUserData.push({
+			firstName: user.firstName,
+			lastName: user.lastName,
+			roleName: roleName,
+			disabled: user.disabled,
+		});
+	});
+
+	let userData = JSON.stringify(tempUserData);
+	let roleData = JSON.stringify(roleList);
+
+	return { props: { userData, roleData } };
 }
 
-function Users({ userList, roleList }) {
-	const users = JSON.parse(userList);
+function Users({ userData, roleData }) {
+	const users = JSON.parse(userData);
+	const roles = JSON.parse(roleData);
+
 	const [search, setSearch] = useState("");
 	const [filter, setFilter] = useState("All");
 	const [rightShow, setRightShow] = useState("button");
@@ -101,7 +120,7 @@ function Users({ userList, roleList }) {
 							onChange={(e) => setFilter(e.target.value)}
 						>
 							<option value="All">All</option>
-							{JSON.parse(roleList).map((role) => (
+							{roles.map((role) => (
 								<option key={role.roleID} value={role.roleName}>
 									{role.roleName}
 								</option>
@@ -113,7 +132,7 @@ function Users({ userList, roleList }) {
 									key={user.userID}
 									firstName={user.firstName}
 									lastName={user.lastName}
-									role={user.roleID}
+									roleName={user.roleName}
 									disabled={user.disabled}
 									setEditing={setIsEditing}
 								></UserCard>
