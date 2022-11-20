@@ -3,7 +3,10 @@ import React from "react";
 import NavBar from "../components/NavBar";
 
 const Index = () => (
-	<>
+	<>	
+		<h1 className="title">
+  			Read <Link href="/login">Login</Link>
+		</h1>
 		<NavBar></NavBar>
 	</>
 );

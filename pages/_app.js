@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
 			<Head>
 				<title>Milaor Trading Corporation</title>
 			</Head>
+			
 
 			<Component {...pageProps} />
 		</>
