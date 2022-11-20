@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import BasicButton from "./BasicButton";
 
 function Header({ page, subPage, user }) {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,9 +24,12 @@ function Header({ page, subPage, user }) {
 						<span>Hello,</span>
 						<span>{user}</span>
 					</div>
-					<div className="logout-button-container" onClick={logout}>
-						<span>Log Out</span>
-					</div>
+					<BasicButton
+						label={"Log Out"}
+						color={"red"}
+						clickFunction={logout}
+						type={"button"}
+					></BasicButton>
 				</div>
 			</div>
 		</>

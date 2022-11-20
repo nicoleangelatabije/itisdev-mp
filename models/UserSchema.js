@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
 	userID: {
-		type: Number,
-		min: 1111,
-		max: 9999,
+		type: String,
+		minlength: 8,
+		maxlength: 8,
 		unique: true,
 		required: true,
 	},
@@ -24,15 +24,15 @@ const UserSchema = new mongoose.Schema({
 		maxLength: 50,
 	},
 	roleID: {
-		type: Number,
-		min: 11,
-		max: 99,
+		type: String,
+		minlength: 4,
+		maxlength: 4,
 		required: true,
 	},
 	creatorID: {
-		type: Number,
-		min: 1111,
-		max: 9999,
+		type: String,
+		minlength: 8,
+		maxlength: 8,
 		required: true,
 	},
 	creationDate: {
@@ -47,4 +47,6 @@ const UserSchema = new mongoose.Schema({
 	},
 });
 
-export default mongoose.models.User || mongoose.model("User", UserSchema);
+const User = mongoose.models.User || mongoose.model("User", UserSchema);
+
+export default User;

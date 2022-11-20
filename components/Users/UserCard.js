@@ -4,9 +4,7 @@ import ToggleSwitch from "../ToggleSwitch";
 function UserCard({ lastName, firstName, role, disabled, setEditing }) {
 	const [isDisabled, setIsDisabled] = useState(disabled);
 
-	useEffect(() => {
-		console.log("DISABLED FROM:", firstName, isDisabled);
-	}, [isDisabled]);
+	useEffect(() => ({}), [isDisabled]);
 
 	return (
 		<div className="user-card-main-container">
