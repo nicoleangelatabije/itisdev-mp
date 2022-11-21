@@ -544,3 +544,36 @@ hr{
   background-color: 10px map-get($colors-neutral, 500);
   width: 98%;
 }
+
+
+//SIGN IN CSS
+
+.signin-title{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.label-cont {
+  width: 200px;
+  height: 35px;
+  text-align: right;
+}
+
+.login-size {
+  max-width: 284px;  
+  max-height: 72px;
+}
