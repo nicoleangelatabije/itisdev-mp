@@ -36,6 +36,53 @@ $colors-red: (
   }
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
+
+@keyframes blur-in{
+  0% { opacity: 0%;}
+  100%{ opacity: 25%;}
+}
+
+@keyframes loading-wait{
+  0% { opacity: 0%;}
+  100%{ opacity: 100%;}
+}
+
+#loading-main-container{
+  animation: loading-wait 1.5s forwards;
+}
+
+#loading-content-container{
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+
+  #loading-logo{
+    animation: spin 2s .5s infinite both;
+  }
+
+}
+
+#blur-main-container{
+  position: absolute;
+  background-color: gray;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 body{
   margin: 0px 0px 0px 0px;
   font-family: 'Inter', sans-serif;
@@ -74,6 +121,7 @@ svg{
   background-color: map-get($colors-primary, 500);
   display: flex;
   flex-direction: column;
+  z-index: 2;
 
   .logo-container{
     align-self: center;
@@ -136,6 +184,7 @@ svg{
   height: 120px;
   display: flex;
   flex-direction: row;
+  z-index: 2;
   
 
   #page-text-container{
@@ -178,6 +227,7 @@ svg{
 #main-container{
   padding-left: 100px;
   padding-top: 120px;
+  z-index: 1;
 }
 
 .red-button-container{
