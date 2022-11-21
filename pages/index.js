@@ -5,7 +5,9 @@ import NavBar from "../components/NavBar";
 const Index = () => (
 	<>	
 			<div id="main-container">
-				<Link href="/signin">Sign In</Link>
+				<div className="input-container gray-button-container">
+					<Link className="link-text" href="/signin">Sign In</Link>
+				</div>
 			</div>
 		<NavBar></NavBar>
 	</>
