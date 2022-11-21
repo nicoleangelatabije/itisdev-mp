@@ -16,7 +16,7 @@ function Vehicles() {
 			<NavBar></NavBar>
 			<div id="main-container">
 				<div className="main-container-bg">
-					<span className="sort-container"></span>
+					<br/>
 					<BasicTable> </BasicTable>
 				</div>
 			</div>
