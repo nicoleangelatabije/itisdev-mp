@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 const Index = () => (
 	<>	
 		<h1 className="title">
-  			Read <Link href="/login">Login</Link>
+  			Read <Link href="/signin">Sign In</Link>
 		</h1>
 		<NavBar></NavBar>
 	</>
