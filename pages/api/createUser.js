@@ -18,9 +18,9 @@ export default async (req, res) => {
 	});
 
 	if (invalidUserID) {
-		res.json("User ID ", userInfo.userID, " is already taken");
+		res.json("User ID " + userInfo.userID + " is already taken");
 	} else {
 		await User.create(userInfo);
-		res.json("User ID ", userInfo.userID, " created");
+		res.json("User ID " + userInfo.userID + " created");
 	}
 };

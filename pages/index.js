@@ -3,12 +3,14 @@ import React from "react";
 import NavBar from "../components/NavBar";
 
 const Index = () => (
-	<>	
-			<div id="main-container">
-				<div className="input-container gray-button-container">
-					<Link className="link-text" href="/signin">Sign In</Link>
-				</div>
+	<>
+		<div id="main-container">
+			<div className="input-container gray-button-container">
+				<Link className="link-text" href="/signin">
+					Sign In
+				</Link>
 			</div>
+		</div>
 		<NavBar></NavBar>
 	</>
 );

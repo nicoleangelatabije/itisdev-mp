@@ -32,6 +32,7 @@ export async function getServerSideProps() {
 			});
 		}
 		tempUserData.push({
+			userID: user.userID,
 			firstName: user.firstName,
 			lastName: user.lastName,
 			roleName: roleName,
@@ -60,13 +61,17 @@ function Users({ userData, roleData }) {
 	}, [isEditing]);
 
 	useEffect(() => {
-		console.log("Currently filtering:", filter);
+		getSearch(search);
 	}, [filter]);
 
 	function getSearch(value) {
 		let tempList = [];
 		users.forEach((user) => {
-			if (user.firstName.includes(value) || user.lastName.includes(value)) {
+			if (
+				(user.firstName.toLowerCase().includes(value) ||
+					user.lastName.toLowerCase().includes(value)) &&
+				(user.roleName == filter || filter == "All")
+			) {
 				tempList.push(user);
 			}
 		});
@@ -79,7 +84,7 @@ function Users({ userData, roleData }) {
 				<p>EDITING</p>
 			</>
 		),
-		create: <UserCreate></UserCreate>,
+		create: <UserCreate roles={roles}></UserCreate>,
 		button: (
 			<BasicButton
 				label={"Create User"}
@@ -130,6 +135,7 @@ function Users({ userData, roleData }) {
 							{userShow.map((user) => (
 								<UserCard
 									key={user.userID}
+									userID={user.userID}
 									firstName={user.firstName}
 									lastName={user.lastName}
 									roleName={user.roleName}

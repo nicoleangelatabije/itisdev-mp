@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import BasicButton from "../BasicButton";
 import ToggleSwitch from "../ToggleSwitch";
 
-function UserCreate() {
+function UserCreate({ roles }) {
 	const [employeeID, setEmployeeID] = useState(0);
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [password, setPassword] = useState("");
-	const [role, setRole] = useState("");
+	const [roleID, setRoleID] = useState("0000");
 	const [isDisabled, setIsDisabled] = useState(false);
 	const currentUserID = "00000001";
 
@@ -17,7 +17,7 @@ function UserCreate() {
 			firstName: firstName,
 			lastName: lastName,
 			password: password,
-			roleID: role,
+			roleID: roleID,
 			creatorID: currentUserID,
 			creationDate: new Date(),
 			disabled: isDisabled,
@@ -81,12 +81,14 @@ function UserCreate() {
 				<select
 					className="sort-dropdown"
 					id="user-create-role"
-					defaultValue={"Employee"}
-					onChange={(e) => setRole(e.target.value)}
+					defaultValue={"0000"}
+					onChange={(e) => setRoleID(e.target.value)}
 				>
-					<option value="0000">Admin</option>
-					<option value="0001">Manager</option>
-					<option value="0002">Employee</option>
+					{roles.map((role) => (
+						<option key={role.roleID} value={role.roleID}>
+							{role.roleName}
+						</option>
+					))}
 				</select>
 				<span>Status:</span>
 				<ToggleSwitch
@@ -98,7 +100,7 @@ function UserCreate() {
 					<BasicButton
 						label={"Save"}
 						color={"green"}
-						type={"button"}
+						type={"submit"}
 						clickFunction={submitForm}
 					></BasicButton>
 					<BasicButton
