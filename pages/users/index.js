@@ -61,15 +61,16 @@ function Users({ userData, roleData }) {
 	}, [isEditing]);
 
 	useEffect(() => {
-		console.log("Currently filtering:", filter);
+		getSearch(search);
 	}, [filter]);
 
 	function getSearch(value) {
 		let tempList = [];
 		users.forEach((user) => {
 			if (
-				user.firstName.toLowerCase().includes(value) ||
-				user.lastName.toLowerCase().includes(value)
+				(user.firstName.toLowerCase().includes(value) ||
+					user.lastName.toLowerCase().includes(value)) &&
+				(user.roleName == filter || filter == "All")
 			) {
 				tempList.push(user);
 			}
