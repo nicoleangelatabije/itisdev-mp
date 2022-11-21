@@ -13,8 +13,34 @@ function AddVehicle() {
         user={"Example N. Name"}
       ></Header>
       <NavBar></NavBar>
+      <br />
       <div id="main-container">
-        <p> Add vehicle </p>
+        <div id="form-container">
+          <div class="grid-item">
+            <label className="form-labels">
+              Plate Number: <label className="required"> * </label>{" "}
+            </label>{" "}
+            <br />
+            <input
+              type="text"
+              className="form-fields"
+              placeholder="Enter Plate Number"
+            />
+          </div>
+
+          <div class="grid-item ">
+            <label className="form-labels">
+              Plate Number: <label className="required"> * </label>{" "}
+            </label>{" "}
+            <br />
+            <input
+              type="text"
+              className="form-fields"
+              placeholder="Enter Plate Number"
+            />
+          </div>
+          <hr />
+        </div>
       </div>
     </>
   );

@@ -413,6 +413,7 @@ svg{
   border-radius: 10px;
   padding: 8px;
   width: 450px;
+  margin-left: 35px;
 }
 
 .sort-dropdown{
@@ -448,7 +449,9 @@ svg{
   border-radius: 10px;
   border-color: map-get($colors-green, 200);
   padding: 8px;
+  margin-right: 35px;
   display: inline;
+  float: right;
 
   a{
     text-decoration: none;
@@ -492,7 +495,35 @@ svg{
   text-align: center;
 }
 
+.form-labels{
+  font-size: 25px;
+  border-radius: 10px;
+  padding: 8px;
+  width: 450px;
+  margin-left: 25px;
+}
+.form-container{
+  display: grid;
+  grid-template-columns: repeat(4,250px);
+}
+.form-fields{
+  font-size: 25px;
+  border-radius: 5px;
+  padding: 8px;
+  width: 400px;
+  margin-left: 35px;
+  margin-top: 10px;
+}
 .page-buttons{
-
+ font-size: 18px;
   margin: auto;
+  align-items: center;
+}
+
+.required{
+  color: map-get($colors-red, 200);
+}
+
+hr{
+  background-color: 10px map-get($colors-neutral, 500);
 }
